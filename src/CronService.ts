@@ -5,15 +5,14 @@ import { TokenDistributor } from './TokenDistributor';
 
 @Injectable()
 export class CronService {
-  contractAddress: string;
   tokenDistributorContract: TokenDistributor;
   claimPeriodBlockStartNumber: number;
   constructor(private appService: AppService) {
   }
 
-  @Cron('*/5 * * * * *') // run every 5 seconds
+  @Cron('*/2 * * * * *') // run every 2 seconds
   async handleCron() {
-    console.log('runs every 5 seconds');
+    console.log('runs every 2 seconds');
     this.claimPeriodBlockStartNumber = this.appService.getClaimPeriodBlockStartNumber();
     //below needs to run as cron job
     const currentBlockNumber =
