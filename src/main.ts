@@ -9,5 +9,7 @@ async function bootstrap() {
   dotenv.config();
   const appService = app.get(AppService);
   await appService.init();
+  appService.startCronJob();
 }
 bootstrap();
+
